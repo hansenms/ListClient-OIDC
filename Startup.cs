@@ -32,7 +32,8 @@ namespace ListClient_OIDC
             .AddAzureAd(options => Configuration.Bind("AzureAd", options))
             .AddCookie();
 
-            services.AddMvc();
+            services.AddMvc().AddSessionStateTempDataProvider();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +50,7 @@ namespace ListClient_OIDC
 
             app.UseStaticFiles();
 
+            app.UseSession(); 
             app.UseAuthentication();
 
             app.UseMvc(routes =>

@@ -13,5 +13,10 @@
         public string TenantId { get; set; }
 
         public string CallbackPath { get; set; }
+
+        public string Resource { get; set; }
+
+        public string ListAPIResource { get; set;}
+        
     }
 }
